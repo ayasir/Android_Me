@@ -10,18 +10,34 @@
  See the License for the specific language governing permissions and
  limitations under the License.-->
 
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
     tools:context="com.yasir.androidme.ui.MainActivity">
 
-    <!-- LinearLayout for holding three Android-Me images -->
+    <!-- The static master list fragment-->
+    <fragment
+        android:layout_width="400dp"
+        android:name="com.yasir.androidme.ui.MasterListFragment"
+        android:layout_height="match_parent"
+        android:id="@+id/master_list_fragment"/>
+    <!-- A small Divider  -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"/>
+
+
+    <!-- LinearLayout for holding three Android-Me images vertically-->
     <LinearLayout
         android:id="@+id/android_me_linear_layout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:background="@android:color/white"
         android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
@@ -29,19 +45,27 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
+        <!-- Three vertically arranged body part fragments - the frame layouts are
+              containers one for each body part (head, body, legs)  -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/head_container"/>
+            android:id="@+id/head_container"
+            />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/body_container"/>
+            android:id="@+id/body_container"
+            />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/leg_container"/>
+            android:id="@+id/leg_container"
+            />
+
+
+
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>
